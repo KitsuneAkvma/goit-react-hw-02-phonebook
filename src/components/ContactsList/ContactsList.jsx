@@ -14,8 +14,6 @@ export class ContactsList extends Component {
       contact.name.toLowerCase().includes(input.value.toLowerCase())
     );
     this.filteredContacts = result;
-    console.log(`Result: `, result);
-    console.log(`Filtered Contacts: `, this.filteredContacts);
   };
 
   render() {
@@ -23,7 +21,16 @@ export class ContactsList extends Component {
     return (
       <StyledContactsList>
         <h2>Contacts</h2>
-        <input type="text" name="filter" onChange={this.props.handleSearch} />
+        {contacts.length === 0 ? (
+          <p></p>
+        ) : (
+          <input
+            type="text"
+            name="filter"
+            onChange={this.props.handleSearch}
+            placeholder="Search for contacts..."
+          />
+        )}
         <ul>
           {contacts.length === 0 ? (
             <h4>Yoy have not added any contacts yet.</h4>
@@ -37,15 +44,20 @@ export class ContactsList extends Component {
               .map(contact => {
                 return (
                   <li key={contact.id}>
-                    <span>Name: </span>
-                    {contact.name} <span>Tel.number: </span>
-                    {contact.number}
+                    <div>
+                      <span>Name: </span>
+                      {contact.name}
+                    </div>
+                    <div>
+                      <span>Tel.number: </span>
+                      {contact.number}
+                    </div>
                     <button
                       className="removeContact"
                       onClick={this.props.handleRemove}
                       id={contact.id}
                     >
-                      -
+                      ✖
                     </button>
                   </li>
                 );

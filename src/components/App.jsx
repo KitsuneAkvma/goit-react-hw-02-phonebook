@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
+import GlobalStyle from '../themes/GlobalStyles.styled';
 import { Container } from './Container/Container.styled';
 import { ContactCreationForm } from './ContactCreationForm/ContactCreationForm';
 import { ContactsList } from './ContactsList/ContactsList';
@@ -42,7 +43,6 @@ export class App extends Component {
       ],
     });
 
-    console.log(this.state);
     form.reset();
   };
 
@@ -69,24 +69,24 @@ export class App extends Component {
         contact => contact.id !== e.currentTarget.id
       ),
     });
-    console.log(
-      this.state.contacts.filter(contact => contact.id !== e.currentTarget.id)
-    );
   };
   render() {
     return (
-      <Container className="App">
-        <ContactCreationForm
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-        />
-        <ContactsList
-          contacts={this.state.contacts}
-          filter={this.state.filter}
-          handleSearch={this.handleSearch}
-          handleRemove={this.removeContact}
-        />
-      </Container>
+      <>
+        <GlobalStyle />
+        <Container className="App">
+          <ContactCreationForm
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />
+          <ContactsList
+            contacts={this.state.contacts}
+            filter={this.state.filter}
+            handleSearch={this.handleSearch}
+            handleRemove={this.removeContact}
+          />
+        </Container>
+      </>
     );
   }
 }
