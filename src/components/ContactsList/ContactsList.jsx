@@ -7,7 +7,7 @@ export class ContactsList extends Component {
 
 
   render() {
-    let contacts = this.props.contacts;
+    const contacts = this.props.contacts;
     return (
       <StyledContactsList>
         <h2>Contacts</h2>
