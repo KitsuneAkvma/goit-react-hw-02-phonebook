@@ -52,7 +52,7 @@ export class App extends Component {
     );
   };
 
-  removeContact = e => {
+  handleRemoveContact = e => {
     e.preventDefault();
 
     this.setState({
@@ -67,14 +67,14 @@ export class App extends Component {
         <GlobalStyle />
         <Container className="App">
           <ContactCreationForm
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            onChange={this.handleChange}
           />
           <ContactsList
             contacts={this.state.contacts}
             filter={this.state.filter}
-            handleSearch={this.handleSearch}
-            handleRemove={this.removeContact}
+            onSearch={this.handleSearch}
+            onRemove={this.handleRemoveContact}
           />
         </Container>
       </>
