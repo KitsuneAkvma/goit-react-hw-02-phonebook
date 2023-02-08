@@ -5,6 +5,7 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: left;
   gap: 0.6rem;
+  width: 100%;
   padding: 3rem 1rem;
 
   border: 7px solid #f7fcfe;
@@ -26,7 +27,7 @@ export const StyledForm = styled.form`
   }
   input {
     height: 2em;
-    width: 20em;
+    width: 90%;
 
     font-size: 1.2em;
   }
@@ -44,6 +45,16 @@ export const StyledForm = styled.form`
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     &:hover {
       transform: scale(1.1);
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    h1 {
+      font-size: 2em;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    h1 {
+      font-size: 1.5em;
     }
   }
 `;
