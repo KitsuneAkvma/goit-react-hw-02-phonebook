@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { StyledContactsList } from './ContactsList.styled';
 
 export class ContactsList extends Component {
+
+
   render() {
     let contacts = this.props.contacts;
     return (
