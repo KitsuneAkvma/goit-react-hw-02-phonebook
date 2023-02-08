@@ -4,18 +4,6 @@ import PropTypes from 'prop-types';
 import { StyledContactsList } from './ContactsList.styled';
 
 export class ContactsList extends Component {
-  handleSearch = e => {
-    const input = e.currentTarget;
-    let result = [];
-
-    this.setState({ filter: input.value });
-
-    result = this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(input.value.toLowerCase())
-    );
-    this.filteredContacts = result;
-  };
-
   render() {
     let contacts = this.props.contacts;
     return (
@@ -27,7 +15,7 @@ export class ContactsList extends Component {
           <input
             type="text"
             name="filter"
-            onChange={this.props.handleSearch}
+            onChange={this.props.onSearch}
             placeholder="Search for contacts..."
           />
         )}
@@ -54,7 +42,7 @@ export class ContactsList extends Component {
                     </div>
                     <button
                       className="removeContact"
-                      onClick={this.props.handleRemove}
+                      onClick={this.props.onRemove}
                       id={contact.id}
                     >
                       ✖
@@ -72,6 +60,6 @@ export class ContactsList extends Component {
 ContactsList.propTypes = {
   contacts: PropTypes.array,
   filter: PropTypes.string,
-  handleSearch: PropTypes.func,
-  handleRemove: PropTypes.func,
+  onSearch: PropTypes.func,
+  onRemove: PropTypes.func,
 };

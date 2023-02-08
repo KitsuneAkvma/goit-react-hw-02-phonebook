@@ -6,7 +6,7 @@ import { StyledForm } from './ContactCreationForm.styled';
 export class ContactCreationForm extends Component {
   render() {
     return (
-      <StyledForm onSubmit={this.props.handleSubmit}>
+      <StyledForm onSubmit={this.props.onSubmit}>
         <h1>Phonebook</h1>
         <h3>Name:</h3>
         <input
@@ -24,7 +24,7 @@ export class ContactCreationForm extends Component {
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
           placeholder="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
@@ -35,6 +35,6 @@ export class ContactCreationForm extends Component {
 }
 
 ContactCreationForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 };
